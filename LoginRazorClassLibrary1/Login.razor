@@ -1,0 +1,22 @@
+@page "/login"
+@inject NavigationManager NavigationManager
+
+<h1>LOG IN</h1>
+
+Click here to log in!
+
+<button @onclick="NavigateToReturnUrl">Log in</button>
+
+Return URL is: <input value="@ReturnUrl" readonly />
+
+@code
+{
+    private void NavigateToReturnUrl()
+    {
+        NavigationManager.NavigateTo(ReturnUrl);
+    }
+
+    [Parameter, SupplyParameterFromQuery]
+    public string ReturnUrl { get; set; }
+
+}
